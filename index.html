@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ACL SIGWAC: Special Interest Group on Web as Corpus</title>
+
+  <!-- Favicons -->
+  <link rel="icon"             href="/favicon.ico" sizes="any">
+  <link rel="icon"             href="/sigwac.svg"  type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+  <!-- SEO -->
+  <meta name="description" content="ACL SIGWAC is the Special Interest Group of the Association for Computational Linguistics on Web as Corpus. We research web data for linguistic analysis, language modelling, and NLP.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://sigwac.org/">
+
+  <!-- Open Graph -->
+  <meta property="og:type"        content="website">
+  <meta property="og:url"         content="https://sigwac.org/">
+  <meta property="og:site_name"   content="ACL SIGWAC">
+  <meta property="og:title"       content="ACL SIGWAC: Special Interest Group on Web as Corpus">
+  <meta property="og:description" content="Researching the opportunities and limitations of using textual web data for linguistic analysis, language modelling, and knowledge representation.">
+  <meta property="og:image"       content="https://sigwac.org/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt"   content="ACL SIGWAC,Web as Corpus">
+  <meta property="og:locale"      content="en_GB">
+
+  <!-- Twitter / X Card -->
+  <meta name="twitter:card"        content="summary_large_image">
+  <meta name="twitter:title"       content="ACL SIGWAC: Special Interest Group on Web as Corpus">
+  <meta name="twitter:description" content="Researching the opportunities and limitations of using textual web data for linguistic analysis, language modelling, and knowledge representation.">
+  <meta name="twitter:image"       content="https://sigwac.org/og-image.png">
+  <meta name="twitter:image:alt"   content="ACL SIGWAC,Web as Corpus">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink:       #0d1117;
+      --ink-mid:   #3d4a5c;
+      --ink-light: #6b7a90;
+      --rule:      #dde2ea;
+      --surface:   #f6f8fb;
+      --white:     #ffffff;
+      --accent:    #73aeee;   /* pulled from logo */
+      --accent-dk: #4a8fd4;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      color: var(--ink);
+      background: var(--white);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── UTILITY ── */
+    .container { max-width: 1060px; margin: 0 auto; padding: 0 2rem; }
+
+    .label {
+      display: block;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: .7rem;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--accent-dk);
+      margin-bottom: .75rem;
+    }
+
+    h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(1.7rem, 3vw, 2.4rem);
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: -.025em;
+      color: var(--ink);
+      margin-bottom: 1rem;
+    }
+
+    .lead {
+      font-size: 1.0625rem;
+      color: var(--ink-mid);
+      line-height: 1.75;
+      max-width: 580px;
+    }
+
+    a { color: var(--accent-dk); }
+    a:hover { color: var(--ink); }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      background: rgba(255, 255, 255,.96);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--rule);
+    }
+    .nav-inner {
+      max-width: 1060px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+    .nav-logo img {
+      height: 36px;
+      width: auto;
+      display: block;
+    }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: .8125rem;
+      font-weight: 500;
+      color: var(--ink-light);
+      text-decoration: none;
+      letter-spacing: .01em;
+      transition: color .15s;
+    }
+    .nav-links a:hover { color: var(--ink); }
+
+    /* ── HERO ── */
+    .hero {
+      padding: 6rem 2rem 5.5rem;
+      border-bottom: 1px solid var(--rule);
+    }
+    .hero-inner {
+      max-width: 1060px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+    .hero-mark img {
+      width: 148px;
+      height: auto;
+      display: block;
+    }
+    .hero-eyebrow {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: .7rem;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      margin-bottom: 1rem;
+      display: block;
+    }
+    .hero h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(2.6rem, 5vw, 4.2rem);
+      font-weight: 700;
+      line-height: 1.05;
+      letter-spacing: -.04em;
+      color: var(--ink);
+      margin-bottom: 1.25rem;
+    }
+    .hero-sub {
+      font-size: 1.0625rem;
+      color: var(--ink-mid);
+      font-weight: 400;
+      max-width: 500px;
+      line-height: 1.7;
+      margin-bottom: 2.25rem;
+    }
+    .hero-actions {
+      display: flex;
+      gap: .75rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .btn {
+      display: inline-block;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: .875rem;
+      font-weight: 600;
+      padding: .65rem 1.4rem;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: opacity .15s, transform .15s;
+      letter-spacing: -.01em;
+    }
+    .btn:hover { opacity: .85; transform: translateY(-1px); }
+    .btn-primary {
+      background: var(--ink);
+      color: var(--white);
+    }
+    .btn-primary:hover { opacity: 1; background: #1e2736; color: var(--white); transform: translateY(-1px); }
+    .btn-outline {
+      border: 1px solid var(--rule);
+      color: var(--ink-mid);
+    }
+    .btn-outline:hover { border-color: var(--ink-light); color: var(--ink); opacity: 1; }
+
+    /* ── ABOUT ── */
+    #about { padding: 6rem 0; }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+    .about-body p {
+      color: var(--ink-mid);
+      line-height: 1.8;
+      margin-bottom: 1rem;
+      font-size: 1.0125rem;
+    }
+    .about-body p strong { color: var(--ink); font-weight: 600; }
+    .constitution-link {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      margin-top: .5rem;
+      font-size: .875rem;
+      font-weight: 500;
+      color: var(--accent-dk);
+      text-decoration: none;
+    }
+    .constitution-link:hover { text-decoration: underline; color: var(--ink); }
+    .constitution-link svg { flex-shrink: 0; }
+
+    .obj-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: .7rem;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      margin-bottom: 1.25rem;
+      padding-bottom: .75rem;
+      border-bottom: 1px solid var(--rule);
+    }
+    .obj-list { list-style: none; }
+    .obj-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: .9rem;
+      padding: .8rem 0;
+      border-bottom: 1px solid var(--rule);
+      font-size: .9375rem;
+      color: var(--ink-mid);
+      line-height: 1.55;
+    }
+    .obj-list li:last-child { border-bottom: none; }
+    .obj-num {
+      flex-shrink: 0;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: .7rem;
+      font-weight: 700;
+      color: var(--accent);
+      min-width: 1.4rem;
+      padding-top: .2rem;
+      letter-spacing: .04em;
+    }
+
+    .join-block {
+      margin-top: 2.5rem;
+      padding: 1.75rem;
+      border: 1px solid var(--rule);
+      border-radius: 10px;
+    }
+    .join-block h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: .4rem;
+      letter-spacing: -.01em;
+    }
+    .join-block p {
+      font-size: .875rem;
+      color: var(--ink-light);
+      margin-bottom: 1rem;
+      line-height: 1.6;
+    }
+    .btn-accent {
+      display: inline-block;
+      font-family: 'Space Grotesk', sans-serif;
+      background: var(--accent);
+      color: white;
+      font-size: .8125rem;
+      font-weight: 600;
+      padding: .6rem 1.25rem;
+      border-radius: 6px;
+      text-decoration: none;
+      letter-spacing: -.01em;
+      transition: background .15s;
+    }
+    .btn-accent:hover { background: var(--accent-dk); color: white; }
+
+    /* ── TOPICS ── */
+    #topics { padding: 6rem 0; background: var(--surface); }
+    .topics-intro { margin-bottom: 3.5rem; }
+    .topics-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--rule);
+      border: 1px solid var(--rule);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .topic-col {
+      background: var(--white);
+      padding: 2rem 1.75rem;
+    }
+    .topic-col h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: .8rem;
+      font-weight: 700;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      padding-bottom: .75rem;
+    }
+    .topic-col.technical h3 { color: var(--ink);     border-bottom: 2px solid var(--ink); }
+    .topic-col.legal h3     { color: var(--accent-dk); border-bottom: 2px solid var(--accent); }
+    .topic-col.societal h3  { color: var(--ink-mid);  border-bottom: 2px solid var(--rule); }
+    .topic-list { list-style: none; }
+    .topic-list li {
+      font-size: .875rem;
+      color: var(--ink-mid);
+      padding: .55rem 0;
+      border-bottom: 1px solid var(--rule);
+      line-height: 1.5;
+    }
+    .topic-list li:last-child { border-bottom: none; }
+
+    /* ── OFFICERS ── */
+    #officers { padding: 6rem 0; }
+    .officers-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
+    .officer { border-top: 2px solid var(--ink); padding-top: 1.25rem; }
+    .officer-initial {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--rule);
+      line-height: 1;
+      margin-bottom: .75rem;
+      letter-spacing: -.04em;
+    }
+    .officer h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: .9375rem;
+      font-weight: 600;
+      letter-spacing: -.01em;
+      margin-bottom: .2rem;
+    }
+    .officer h3 a { color: var(--ink); text-decoration: none; }
+    .officer h3 a:hover { color: var(--accent-dk); }
+    .officer-role { font-size: .8rem; color: var(--ink-light); font-weight: 500; }
+
+    /* ── RESOURCES ── */
+    #resources { padding: 6rem 0; background: var(--surface); }
+    .resources-layout {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 4rem;
+      margin-top: 3rem;
+    }
+    .resource-group h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: .7rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      margin-bottom: 1.1rem;
+      padding-bottom: .6rem;
+      border-bottom: 1px solid var(--rule);
+    }
+    .resource-group ul { list-style: none; }
+    .resource-group li { margin-bottom: .5rem; }
+    .resource-group a {
+      font-size: .9rem;
+      color: var(--ink-mid);
+      text-decoration: none;
+      line-height: 1.45;
+    }
+    .resource-group a:hover { color: var(--accent-dk); }
+
+    /* ── MEETINGS ── */
+    #meetings { padding: 6rem 0; }
+    .meetings-layout {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 5rem;
+    }
+    .meetings-sidebar p {
+      font-size: .9375rem;
+      color: var(--ink-mid);
+      line-height: 1.7;
+      margin-top: .75rem;
+    }
+    .meetings-table { width: 100%; border-collapse: collapse; }
+    .meetings-table tr { border-bottom: 1px solid var(--rule); }
+    .meetings-table tr:first-child { border-top: 1px solid var(--rule); }
+    .meetings-table td { padding: .9rem 0; vertical-align: top; }
+    .m-year {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: .8rem;
+      font-weight: 600;
+      color: var(--ink-light);
+      width: 52px;
+      white-space: nowrap;
+      padding-right: 1.5rem !important;
+    }
+    .m-name {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: .9375rem;
+      font-weight: 600;
+      color: var(--ink);
+      padding-right: 1.5rem !important;
+      min-width: 110px;
+    }
+    .m-name a { color: inherit; text-decoration: none; }
+    .m-name a:hover { color: var(--accent-dk); }
+    .m-info { font-size: .875rem; color: var(--ink-light); line-height: 1.5; }
+    .m-info a { color: var(--ink-light); }
+    .m-info a:hover { color: var(--accent-dk); }
+    .m-tag {
+      display: inline-block;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: .65rem;
+      font-weight: 700;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+      padding: .15rem .45rem;
+      border-radius: 4px;
+      margin-left: .5rem;
+      background: #fef2f2;
+      color: #b91c1c;
+      border: 1px solid #fecaca;
+      vertical-align: middle;
+    }
+
+    /* ── REPORTS ── */
+    #reports { padding: 6rem 0; background: var(--surface); }
+    .reports-layout {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 5rem;
+    }
+    .reports-sidebar p {
+      font-size: .9375rem;
+      color: var(--ink-mid);
+      line-height: 1.7;
+      margin-top: .75rem;
+    }
+    .reports-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: .75rem;
+    }
+    .report-item {
+      display: block;
+      padding: 1rem 1.1rem;
+      background: var(--white);
+      border: 1px solid var(--rule);
+      border-radius: 8px;
+      text-decoration: none;
+      transition: border-color .15s, box-shadow .15s;
+    }
+    .report-item:hover {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(115, 174, 238,.1);
+    }
+    .report-year {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: .9375rem;
+      font-weight: 600;
+      color: var(--ink);
+      display: block;
+      letter-spacing: -.02em;
+    }
+    .report-sub {
+      font-size: .75rem;
+      color: var(--ink-light);
+      display: block;
+      margin-top: .1rem;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--ink);
+      color: rgba(255, 255, 255,.35);
+      padding: 3rem 2rem;
+    }
+    .footer-inner {
+      max-width: 1060px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .footer-logo svg {
+      height: 32px;
+      width: auto;
+      display: block;
+    }
+    .footer-logo .cls-2 { fill: rgba(255, 255, 255,.45); }
+    .footer-logo .cls-3 { fill: #0d1117; }
+    .footer-logo .cls-1 { fill: #73aeee; stroke: #73aeee; stroke-miterlimit: 10; stroke-width: 2px; }
+    footer p { font-size: .8125rem; }
+    footer a { color: rgba(255, 255, 255,.4); text-decoration: none; }
+    footer a:hover { color: rgba(255, 255, 255,.7); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .hero-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      .hero-mark img { width: 100px; }
+      .about-grid,
+      .topics-grid,
+      .resources-layout,
+      .meetings-layout,
+      .reports-layout { grid-template-columns: 1fr; gap: 2.5rem; }
+      .officers-grid { grid-template-columns: repeat(2, 1fr); }
+      .reports-grid { grid-template-columns: repeat(2, 1fr); }
+      .nav-links { display: none; }
+    }
+    @media (max-width: 480px) {
+      .reports-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">
+        <img src="sigwac.svg" alt="ACL SIGWAC">
+      </a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#topics">Topics</a></li>
+        <li><a href="#officers">Officers</a></li>
+        <li><a href="#resources">Resources</a></li>
+        <li><a href="#meetings">Meetings</a></li>
+        <li><a href="#reports">Reports</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="hero-mark">
+        <img src="sigwac.svg" alt="SIGWAC">
+      </div>
+      <div class="hero-text">
+        <span class="hero-eyebrow">ACL Special Interest Group</span>
+        <h1>Web as<br>Corpus</h1>
+        <p class="hero-sub">Researching the opportunities and limitations of using textual web data for linguistic analysis, language modelling, and knowledge representation.</p>
+        <div class="hero-actions">
+          <a href="http://devel.sslmit.unibo.it/mailman/listinfo/sigwac" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Join the mailing list</a>
+          <a href="#about" class="btn btn-outline">Learn more</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="container">
+      <div class="about-grid">
+
+        <div class="about-body">
+          <span class="label">About SIGWAC</span>
+          <h2>The community for web corpus research</h2>
+          <p>SIGWAC is the Special Interest Group of the <a href="http://www.aclweb.org/">Association for Computational Linguistics</a> on <strong>Web as Corpus</strong>. We research the opportunities and limitations of using textual web data across linguistic and computational domains.</p>
+          <p>Given ever-growing data needs of Large Language Models, Web Corpora have taken a central place in Natural Language Processing, Computational Linguistics, and Machine Learning. SIGWAC has organised its topics of interest across technical, legal, and societal dimensions to reflect this.</p>
+          <p>We promote interest in the web as both a source of linguistic data and an object of study in its own right, providing members of the ACL with a means to exchange research developments and news.</p>
+          <a href="https://sigwac.org.uk/attachment/wiki/WikiStart/constitution.txt?format=raw" class="constitution-link" target="_blank" rel="noopener noreferrer">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            Constitution of ACL SIGWAC
+          </a>
+        </div>
+
+        <div>
+          <p class="obj-title">Objectives</p>
+          <ul class="obj-list">
+            <li><span class="obj-num">01</span>Build a community around web-as-corpus research</li>
+            <li><span class="obj-num">02</span>Support and promote information exchange and the dissemination of results and best practices</li>
+            <li><span class="obj-num">03</span>Organise workshops, hackathons, and shared tasks</li>
+            <li><span class="obj-num">04</span>Sponsor meetings and workshops on the web as corpus that are timely and worthwhile</li>
+          </ul>
+
+          <div class="join-block">
+            <h3>Stay in the loop</h3>
+            <p>Sign up to the mailing list to receive news, announcements, and calls for participation from the SIGWAC community.</p>
+            <a href="http://devel.sslmit.unibo.it/mailman/listinfo/sigwac" class="btn-accent" target="_blank" rel="noopener noreferrer">Subscribe to the mailing list</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- TOPICS -->
+  <section id="topics">
+    <div class="container">
+      <div class="topics-intro">
+        <span class="label">Scope</span>
+        <h2>Topics of interest</h2>
+        <p class="lead">SIGWAC's research spans three interconnected dimensions as web corpora become central to modern NLP and ML.</p>
+      </div>
+      <div class="topics-grid">
+        <div class="topic-col technical">
+          <h3>Technical</h3>
+          <ul class="topic-list">
+            <li>Filtering strategies for web data in LLM pre-training</li>
+            <li>Impact of web data in the pre-training data mix of LLMs</li>
+            <li>Crawling and ranking</li>
+            <li>Construction of web graphs</li>
+            <li>Language identification, multilinguality, and web as corpus for low-resource languages</li>
+            <li>Web indexing, information retrieval, and LLM application in document representations</li>
+            <li>Semantic web and automatic annotation of multilingual web data</li>
+          </ul>
+        </div>
+        <div class="topic-col legal">
+          <h3>Legal</h3>
+          <ul class="topic-list">
+            <li>Intellectual property and licensing of web data</li>
+            <li>Robot exclusion protocol and other opt-out methods for AI training</li>
+            <li>Privacy preservation in web corpora, automatic PII detection and redaction</li>
+            <li>Study and application of the TDM directive in the EU</li>
+            <li>Study and application of the AI Act in the EU</li>
+            <li>Scope of data usage</li>
+          </ul>
+        </div>
+        <div class="topic-col societal">
+          <h3>Societal</h3>
+          <ul class="topic-list">
+            <li>Socio-linguistic studies of web data</li>
+            <li>Web-graph as a tool for corpus exploration in a multidisciplinary setting</li>
+            <li>Study of bias and toxicity in web corpora</li>
+            <li>Study of illegal content prevalence in web corpora</li>
+            <li>Web corpora as a means to promote multilingualism and multiculturalism</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OFFICERS -->
+  <section id="officers">
+    <div class="container">
+      <span class="label">Leadership</span>
+      <h2>Officers</h2>
+      <div class="officers-grid">
+        <div class="officer">
+          <div class="officer-initial">NL</div>
+          <h3><a href="https://nljubesi.github.io" target="_blank" rel="noopener noreferrer">Nikola Ljubešić</a></h3>
+          <div class="officer-role">Co-Secretary</div>
+        </div>
+        <div class="officer">
+          <div class="officer-initial">BS</div>
+          <h3><a href="http://alpage.inria.fr/~sagot/" target="_blank" rel="noopener noreferrer">Benoît Sagot</a></h3>
+          <div class="officer-role">Co-Secretary</div>
+        </div>
+        <div class="officer">
+          <div class="officer-initial">VL</div>
+          <h3><a href="https://www.utu.fi/en/people/veronika-laippala" target="_blank" rel="noopener noreferrer">Veronika Laippala</a></h3>
+          <div class="officer-role">Co-President</div>
+        </div>
+        <div class="officer">
+          <div class="officer-initial">PO</div>
+          <h3><a href="https://portizs.eu" target="_blank" rel="noopener noreferrer">Pedro Ortiz Suarez</a></h3>
+          <div class="officer-role">Co-President</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESOURCES -->
+  <section id="resources">
+    <div class="container">
+      <span class="label">Resources</span>
+      <h2>Corpora &amp; tools</h2>
+      <div class="resources-layout">
+        <div class="resource-group">
+          <h3>Corpora</h3>
+          <ul>
+            <li><a href="https://commoncrawl.org" target="_blank" rel="noopener noreferrer">Common Crawl</a></li>
+            <li><a href="https://hplt-project.org" target="_blank" rel="noopener noreferrer">HPLT</a></li>
+            <li><a href="https://oscar-project.org" target="_blank" rel="noopener noreferrer">OSCAR</a></li>
+            <li><a href="https://paracrawl.eu" target="_blank" rel="noopener noreferrer">ParaCrawl</a></li>
+            <li><a href="https://macocu.eu" target="_blank" rel="noopener noreferrer">MaCoCu</a></li>
+            <li><a href="https://www.clarin.si/info/new-classla-web-corpora-and-tutorial-on-usage-of-the-corpora-via-clarin-si-concordancers/" target="_blank" rel="noopener noreferrer">CLASSLA South Slavic web corpora</a></li>
+            <li><a href="http://sketch.juls.savba.sk/aranea_about/" target="_blank" rel="noopener noreferrer">Aranea web corpora</a></li>
+            <li><a href="https://www.clarin.si/noske/wacs.cgi/" target="_blank" rel="noopener noreferrer">CLARIN.SI web corpora</a></li>
+            <li><a href="http://corpus.leeds.ac.uk/internet.html" target="_blank" rel="noopener noreferrer">University of Leeds (CTS) web corpora</a></li>
+            <li><a href="http://www.sketchengine.co.uk/" target="_blank" rel="noopener noreferrer">Web corpora on Sketchengine</a></li>
+            <li><a href="https://wacky.sslmit.unibo.it/doku.php?id=start" target="_blank" rel="noopener noreferrer">WaCKy corpora</a></li>
+          </ul>
+        </div>
+        <div class="resource-group">
+          <h3>Technologies</h3>
+          <ul>
+            <li><a href="https://corpus.tools" target="_blank" rel="noopener noreferrer">corpus.tools</a></li>
+            <li><a href="https://huggingface.co/classla/xlm-roberta-base-multilingual-text-genre-classifier" target="_blank" rel="noopener noreferrer">XGENRE genre classifier</a></li>
+            <li><a href="https://github.com/TurkuNLP/multilingual-register-labeling" target="_blank" rel="noopener noreferrer">Multilingual register labelling</a></li>
+          </ul>
+        </div>
+        <div class="resource-group">
+          <h3>Further reading</h3>
+          <ul>
+            <li><a href="https://link.springer.com/book/10.1007/978-3-031-02152-7" target="_blank" rel="noopener noreferrer">Schäfer &amp; Bildhauer: Web corpus book</a></li>
+            <li><a href="http://webascorpus.sf.net/" target="_blank" rel="noopener noreferrer">Stephanie Evert's WAC website</a></li>
+            <li><a href="https://sigwac.org.uk/cleaneval" target="_blank" rel="noopener noreferrer">CLEANEVAL competition</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MEETINGS -->
+  <section id="meetings">
+    <div class="container">
+      <div class="meetings-layout">
+        <div class="meetings-sidebar">
+          <span class="label">History</span>
+          <h2>Workshops &amp; meetings</h2>
+          <p>The WAC workshop series has run since 2005, co-located with major NLP and linguistics conferences around the world.</p>
+        </div>
+        <div>
+          <table class="meetings-table">
+            <tbody>
+              <tr>
+                <td class="m-year">2020</td>
+                <td class="m-name"><a href="https://sigwac.org.uk/wiki/WAC-XII" target="_blank" rel="noopener noreferrer">WAC-XII</a><span class="m-tag">Cancelled</span></td>
+                <td class="m-info"><a href="https://lrec2020.lrec-conf.org" target="_blank" rel="noopener noreferrer">LREC 2020</a>, Marseille, 16 May. Proceedings published.</td>
+              </tr>
+              <tr>
+                <td class="m-year">2017</td>
+                <td class="m-name"><a href="https://sigwac.org.uk/wiki/WAC-XI" target="_blank" rel="noopener noreferrer">WAC-XI</a></td>
+                <td class="m-info"><a href="http://www.birmingham.ac.uk/research/activity/corpus/events/2017/cl2017/index.aspx" target="_blank" rel="noopener noreferrer">Corpus Linguistics 2017</a>, Birmingham, 24–27 July</td>
+              </tr>
+              <tr>
+                <td class="m-year">2016</td>
+                <td class="m-name"><a href="https://sigwac.org.uk/wiki/WAC-X" target="_blank" rel="noopener noreferrer">WAC-X</a></td>
+                <td class="m-info"><a href="http://acl2016.org/" target="_blank" rel="noopener noreferrer">ACL 2016</a>, Berlin, 12 August</td>
+              </tr>
+              <tr>
+                <td class="m-year">2015</td>
+                <td class="m-name"><a href="https://sigwac.org.uk/wiki/wac2015" target="_blank" rel="noopener noreferrer">WAC@eLex</a></td>
+                <td class="m-info">eLex, Herstmonceux Castle, UK, 10 August</td>
+              </tr>
+              <tr>
+                <td class="m-year">2014</td>
+                <td class="m-name"><a href="https://sigwac.org.uk/wiki/WAC9" target="_blank" rel="noopener noreferrer">WAC9</a></td>
+                <td class="m-info"><a href="http://eacl2014.org/" target="_blank" rel="noopener noreferrer">EACL 2014</a>, Gothenburg, 26–27 April</td>
+              </tr>
+              <tr>
+                <td class="m-year">2013</td>
+                <td class="m-name"><a href="https://sigwac.org.uk/wiki/WAC8" target="_blank" rel="noopener noreferrer">WAC8</a></td>
+                <td class="m-info"><a href="http://ucrel.lancs.ac.uk/cl2013/" target="_blank" rel="noopener noreferrer">Corpus Linguistics 2013</a>, Lancaster, 22 July</td>
+              </tr>
+              <tr>
+                <td class="m-year">2012</td>
+                <td class="m-name"><a href="https://sigwac.org.uk/wiki/WAC7" target="_blank" rel="noopener noreferrer">WAC7</a></td>
+                <td class="m-info"><a href="http://www2012.wwwconference.org/" target="_blank" rel="noopener noreferrer">WWW12</a>, Lyon, 17 April</td>
+              </tr>
+              <tr>
+                <td class="m-year">2011</td>
+                <td class="m-name"><a href="http://www.limsi.fr/~pz/bucc2011-comparable-corpora/" target="_blank" rel="noopener noreferrer">BUCC</a></td>
+                <td class="m-info"><a href="http://www.acl2011.org/" target="_blank" rel="noopener noreferrer">ACL 2011</a>, Portland, Oregon, 24 June</td>
+              </tr>
+              <tr>
+                <td class="m-year">2010</td>
+                <td class="m-name"><a href="https://sigwac.org.uk/wiki/WAC6" target="_blank" rel="noopener noreferrer">WAC6</a></td>
+                <td class="m-info">NAACL-HLT, Los Angeles, 5 June</td>
+              </tr>
+              <tr>
+                <td class="m-year">2009</td>
+                <td class="m-name"><a href="https://sigwac.org.uk/wiki/WAC5" target="_blank" rel="noopener noreferrer">WAC5</a></td>
+                <td class="m-info">SPLN, San Sebastián, Basque Country, 7 September</td>
+              </tr>
+              <tr>
+                <td class="m-year">2008</td>
+                <td class="m-name"><a href="http://webascorpus.sourceforge.net/PHITE.php?sitesig=CONF&page=CONF_40_WAC-4___lb__2008__rb__" target="_blank" rel="noopener noreferrer">WAC4</a></td>
+                <td class="m-info">LREC, Marrakech, 1 June</td>
+              </tr>
+              <tr>
+                <td class="m-year">2007</td>
+                <td class="m-name"><a href="http://cental.fltr.ucl.ac.be/wac3" target="_blank" rel="noopener noreferrer">WAC3</a></td>
+                <td class="m-info">Louvain-la-Neuve, Belgium, 15–16 September</td>
+              </tr>
+              <tr>
+                <td class="m-year">2006</td>
+                <td class="m-name"><a href="http://sslmit.unibo.it/~baroni/web_as_corpus_eacl06.html" target="_blank" rel="noopener noreferrer">WAC2</a></td>
+                <td class="m-info">EACL, Trento, Italy,April</td>
+              </tr>
+              <tr>
+                <td class="m-year">2005</td>
+                <td class="m-name"><a href="http://sslmit.unibo.it/~baroni/web_as_corpus_cl05.html" target="_blank" rel="noopener noreferrer">WAC1</a></td>
+                <td class="m-info">Corpus Linguistics, Birmingham,July</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REPORTS -->
+  <section id="reports">
+    <div class="container">
+      <div class="reports-layout">
+        <div class="reports-sidebar">
+          <span class="label">Governance</span>
+          <h2>Annual reports</h2>
+          <p>SIGWAC submits annual Q3 reports to the ACL administrative wiki.</p>
+        </div>
+        <div class="reports-grid">
+          <a href="https://www.aclweb.org/adminwiki/index.php?title=2024Q3_Reports:_SIGWAC" class="report-item" target="_blank" rel="noopener noreferrer"><span class="report-year">2024</span><span class="report-sub">Q3 report</span></a>
+          <a href="https://www.aclweb.org/adminwiki/index.php?title=2023Q3_Reports:_SIGWAC" class="report-item" target="_blank" rel="noopener noreferrer"><span class="report-year">2023</span><span class="report-sub">Q3 report</span></a>
+          <a href="https://www.aclweb.org/adminwiki/index.php?title=2021Q3_Reports:_SIGWAC" class="report-item" target="_blank" rel="noopener noreferrer"><span class="report-year">2021</span><span class="report-sub">Q3 report</span></a>
+          <a href="https://www.aclweb.org/adminwiki/index.php?title=2020Q3_Reports:_SIGWAC" class="report-item" target="_blank" rel="noopener noreferrer"><span class="report-year">2020</span><span class="report-sub">Q3 report</span></a>
+          <a href="https://www.aclweb.org/adminwiki/index.php?title=2019Q3_Reports:_SIGWAC" class="report-item" target="_blank" rel="noopener noreferrer"><span class="report-year">2019</span><span class="report-sub">Q3 report</span></a>
+          <a href="https://www.aclweb.org/adminwiki/index.php?title=2018Q3_Reports:_SIGWAC" class="report-item" target="_blank" rel="noopener noreferrer"><span class="report-year">2018</span><span class="report-sub">Q3 report</span></a>
+          <a href="https://www.aclweb.org/adminwiki/index.php?title=2016Q3_Reports:_SIGWAC" class="report-item" target="_blank" rel="noopener noreferrer"><span class="report-year">2016</span><span class="report-sub">Q3 report</span></a>
+          <a href="https://www.aclweb.org/adminwiki/index.php?title=2015Q3_Reports:_SIGWAC" class="report-item" target="_blank" rel="noopener noreferrer"><span class="report-year">2015</span><span class="report-sub">Q3 report</span></a>
+          <a href="https://www.aclweb.org/adminwiki/index.php?title=2014Q3_Reports:_SIGWAC" class="report-item" target="_blank" rel="noopener noreferrer"><span class="report-year">2014</span><span class="report-sub">Q3 report</span></a>
+          <a href="https://www.aclweb.org/adminwiki/index.php?title=2013Q3_Reports:_SIGWAC" class="report-item" target="_blank" rel="noopener noreferrer"><span class="report-year">2013</span><span class="report-sub">Q3 report</span></a>
+          <a href="https://www.aclweb.org/adminwiki/index.php?title=2012Q3_Reports:_SIGWAC" class="report-item" target="_blank" rel="noopener noreferrer"><span class="report-year">2012</span><span class="report-sub">Q3 report</span></a>
+          <a href="http://aclweb.org/adminwiki/index.php?title=Reports" class="report-item" target="_blank" rel="noopener noreferrer"><span class="report-year">Older</span><span class="report-sub">All reports</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-logo">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 142.76 187.36" aria-label="ACL SIGWAC">
+          <g>
+            <path class="cls-2" d="M74.47,124.41c3.79-2.52,4.98-5.71,5.45-9.23.27-2.02.79-3.74,3.25-3.34,2.15.34,2.17,2.13,2.12,3.87-.11,3.57-4.48,8.26-7.46,11.19,1.74.97,6.71-2.3,8-2.8,1.39-.54,2.52-.7,3.42.75.95,1.53.19,2.67-1.07,3.27-5.88,2.81-10.05,1.53-.06,4.58,1.2.37,2.4,1.56,1.63,3.13-.69,1.4-2.16,1.44-3.5,1.18-2.94-.57-5.37-2.15-5.53-1.19,1.02,3.17,3.84,5.97,4.37,8.75.32,1.7,1.28,4.25-1.63,4.93-3.13.73-3.35-1.54-3.68-3.83-.28-1.92-.74-3.88-2.7-5.78-1.45,5.55-4.21,9.5-10.31,9-5.29-.43-7.66-3.99-8.61-9.26-2.23,2.18-2.74,4.59-2.91,7.16-.13,1.98-1.13,2.98-3.23,2.78-2.35-.22-2.55-1.9-2.29-3.59.3-1.94,1.6-5.58,2.94-7.03,1.46-1.58,2.39-2.21,2.31-2.66-.2-1.22-.75-1.49-4.86.5-1.4.68-3,.69-3.09-1.28-.09-1.99,1.81-2.95,3.92-3.36,1.32-.25,3.31-.58,3.82-.89-1.79-2.78-10.59-.49-8.86-5.56,1.16-3.39,8.12,1.35,10.6,1.16-2.14-2.46-5.96-7.44-6.68-10.4-.5-2.04-.3-4.26,2.33-4.62,2.38-.32,3.01,1.57,3.15,3.54.25,3.46,1.62,6.26,4.74,8.65-.03-3.95.49-7.38,2.96-8.38,1.42-.57,1.85-2,1.85-4.19,0-3.74.14-7.8-.36-8.58-.71-1.11-1.73-.69-2.64-.59-5.77.6-11.38,1.87-16.97,3.45-3.31.94-3.79,3.89-5.29,6.14-1.12,1.67-2.05,3.84-4.52,2.48-2.46-1.35-1.59-3.55-.29-5.08,4.4-5.16,2.87-10.2,1.05-15.99-3.86-12.28-11.8-21.64-19.89-31.07-2.32-2.7-5.16-1.45-7.82-1.82-2.09-.29-5.27,1.04-5.43-2.53-.17-3.66,3.06-3.06,5.11-2.74,5.22.8,8.42-1.68,11.83-5.28,9.38-9.91,14.43-21.98,18.66-34.59.64-1.91.3-3.49-.78-5.12-1.27-1.93-2.33-3.99-3.5-5.99-.81-1.39-.5-2.67.72-3.49,1.38-.94,3.11-.91,3.85.72,6.37,14.06,19.57,11.82,31.13,12.77,7.25.6,14.37-1.66,21.39-3.68,3.78-1.09,4.36-4.69,6.31-7.21,1.3-1.67,2.27-4.25,4.93-2.73,2.78,1.59,1.24,3.9-.17,5.41-4.36,4.7-3.27,9.44-1.51,14.96,4.03,12.69,11.73,22.83,20.47,32.43,1.26,1.38,2.58,1.83,4.34,1.76,2.15-.09,4.3-.05,6.45,0,1.72.05,2.84.92,2.83,2.72,0,1.57-1.08,2.68-2.52,2.49-13.98-1.91-17.73,10.03-23.72,18.17-5.07,6.89-7.03,15.58-9.9,23.67-1.06,2.98,1.37,4.52,2.29,6.67.83,1.96,2.56,4.02-.16,5.58-2.46,1.41-3.86-.73-4.43-2.54-2.36-7.51-8.99-7.23-14.8-8.41-11.6-2.36-13.42-2.52-12.47,9.35.1,1.2.44,2.43,2.45,3.78,2.69,1.81,3.08,4.52,2.95,7.88ZM115.41,60.79c-15.86-1.33-20.2,1.39-25.92,15.39-3.1,7.59-1.21,14.68,5.45,20.12,4.06-13.12,9.83-25.25,20.47-35.51ZM114.65,54.14c-9.37-9.89-16.43-21.32-20.09-34.67-7.06,6.8-9.5,13.69-4.23,22.48,5.54,9.21,11.46,16.73,24.32,12.19ZM48.92,17.06c2.3,10.93,9.54,13.52,18.85,13.26,9.33-.26,17.33-2.34,20.11-13.18-12.95,3.37-25.98,3.4-38.96-.08ZM41.98,95.43c7.03-10.42,6.89-15.1.26-25.04-4.68-7-9.75-12.97-20.04-9.1,9.17,9.61,16.4,20.29,19.78,34.14ZM42.41,19.76c-3.96,13.1-10.02,24.93-19.51,34.45,10.92,3.92,15.92-2.71,19.94-10.32,4.14-7.84,9.05-15.98-.43-24.13ZM63.75,54.86c-3.82-6.5-7.37-12.54-11.49-19.54-2.3,7.91-5.63,13.83-10.37,19.54h21.86ZM92.98,54.96c-4.66-5.6-8.13-10.85-10.39-17.78-3.9,6.19-7.38,11.71-11.21,17.78h21.6ZM51.83,78.49c3.45-6.23,6.58-11.89,9.83-17.75h-20.1c4.82,5.44,8.21,10.84,10.27,17.75ZM93.19,60.39c-6.59,0-11.67.06-16.75-.03-2.67-.05-2.7.91-1.53,2.9,2.65,4.48,5.17,9.03,8.09,14.16,2.54-6.17,5.03-11.68,10.19-17.03ZM88.85,98.78c-3.58-4.9-3.93-11.08-11.14-12.05-7.67-1.03-7.62-1.49-7.4,6.33.05,1.67-.65,3.57,2.36,3.78,5.04.35,10.04,1.18,16.18,1.95ZM47.1,98.97c4.93-.76,9.44-1.78,14-2.03,3.18-.17,4.04-1.35,3.7-4.21-.15-1.31-.16-2.66,0-3.97.36-2.9-1.1-2.94-3.49-2.99-8.93-.18-11.17,6.52-14.2,13.19ZM58.45,34.85c3.33,5.71,6.15,10.54,9.21,15.78,3.39-5.47,6.38-10.28,9.82-15.82-6.67.91-12.35,1.5-19.02.04ZM56.79,80.78c8.27-.08,9.59-2.36,7.24-12.85-2.43,4.31-4.73,8.38-7.24,12.85ZM78.51,80.67c-2.57-4.48-5.01-8.74-7.94-13.85-.29,15.19-2.13,13.32,7.94,13.85Z" />
+            <path class="cls-3" d="M115.41,60.79c-10.64,10.26-16.41,22.38-20.47,35.51-6.66-5.44-8.55-12.53-5.45-20.12,5.72-14,10.06-16.72,25.92-15.39Z" />
+            <path class="cls-3" d="M114.65,54.14c-12.86,4.54-18.78-2.98-24.32-12.19-5.28-8.78-2.83-15.68,4.23-22.48,3.67,13.35,10.73,24.78,20.09,34.67Z" />
+            <path class="cls-3" d="M48.92,17.06c12.99,3.48,26.02,3.44,38.96.08-2.78,10.84-10.78,12.92-20.11,13.18-9.31.26-16.55-2.33-18.85-13.26Z" />
+            <path class="cls-3" d="M41.98,95.43c-3.39-13.85-10.61-24.53-19.78-34.14,10.29-3.86,15.36,2.1,20.04,9.1,6.64,9.94,6.78,14.62-.26,25.04Z" />
+            <path class="cls-3" d="M42.41,19.76c9.48,8.15,4.57,16.29.43,24.13-4.02,7.61-9.02,14.23-19.94,10.32,9.49-9.52,15.55-21.35,19.51-34.45Z" />
+            <path class="cls-3" d="M63.75,54.86h-21.86c4.74-5.71,8.07-11.63,10.37-19.54,4.12,7,7.67,13.04,11.49,19.54Z" />
+            <path class="cls-3" d="M92.98,54.96h-21.6c3.83-6.07,7.31-11.59,11.21-17.78,2.26,6.93,5.73,12.18,10.39,17.78Z" />
+            <path class="cls-3" d="M51.83,78.49c-2.06-6.91-5.45-12.31-10.27-17.75h20.1c-3.25,5.87-6.38,11.52-9.83,17.75Z" />
+            <path class="cls-3" d="M93.19,60.39c-5.16,5.35-7.65,10.86-10.19,17.03-2.92-5.13-5.44-9.68-8.09-14.16-1.17-1.98-1.14-2.94,1.53-2.9,5.08.09,10.16.03,16.75.03Z" />
+            <path class="cls-3" d="M88.85,98.78c-6.14-.77-11.14-1.6-16.18-1.95-3.01-.21-2.31-2.11-2.36-3.78-.22-7.82-.27-7.36,7.4-6.33,7.21.97,7.56,7.15,11.14,12.05Z" />
+            <path class="cls-3" d="M47.1,98.97c3.03-6.67,5.27-13.37,14.2-13.19,2.39.05,3.85.09,3.49,2.99-.16,1.3-.15,2.66,0,3.97.34,2.86-.52,4.04-3.7,4.21-4.56.25-9.07,1.28-14,2.03Z" />
+            <path class="cls-3" d="M58.45,34.85c6.68,1.46,12.35.87,19.02-.04-3.44,5.55-6.43,10.35-9.82,15.82-3.06-5.25-5.87-10.07-9.21-15.78Z" />
+            <path class="cls-3" d="M56.79,80.78c2.52-4.47,4.82-8.54,7.24-12.85,2.34,10.48,1.03,12.77-7.24,12.85Z" />
+            <path class="cls-3" d="M78.51,80.67c-10.07-.53-8.23,1.34-7.94-13.85,2.93,5.11,5.37,9.37,7.94,13.85Z" />
+          </g>
+          <g>
+            <path class="cls-1" d="M3.73,168.24c0,1.86,1.26,3.38,5.94,4.47,6.2,1.43,7.93,3.99,7.93,7.24s-2.25,6.37-8.19,6.37c-2.77,0-5.42-.65-7.85-1.99-.35-.22-.56-.56-.56-.95,0-.52.43-1.08,1.08-1.08.17,0,.35.04.52.13,2.08,1.17,4.38,1.73,6.81,1.73,3.95,0,6.03-1.86,6.03-4.21s-1.82-3.99-6.2-5.07c-6.16-1.52-7.67-3.77-7.67-6.81,0-2.73,2.43-5.59,6.98-5.59,3.16,0,4.73.52,6.89,1.39.43.17.69.56.69,1,0,.56-.52,1.08-1.08,1.08-.13,0-.26-.04-1-.35-1.39-.56-2.86-.95-5.51-.95-2.95,0-4.81,1.73-4.81,3.6Z" />
+            <path class="cls-1" d="M26.32,185.92c-.56,0-1.08-.52-1.08-1.08v-21.02c0-.61.52-1.08,1.08-1.08.61,0,1.08.48,1.08,1.08v21.02c0,.61-.48,1.08-1.08,1.08Z" />
+            <path class="cls-1" d="M34.51,174.48c0-7.28,5.03-12.14,11.88-12.14,2.56,0,4.77.56,6.72,1.26.43.17.69.52.69,1,0,.56-.39,1.08-1.08,1.08-.13,0-.26-.04-.39-.09-1.69-.65-3.64-1.08-5.94-1.08-5.64,0-9.71,3.99-9.71,9.97,0,5.38,3.51,9.67,9.58,9.67,2.82,0,4.94-.65,6.72-1.65v-6.29h-6.03c-.56,0-1.08-.52-1.08-1.08,0-.61.52-1.08,1.08-1.08h6.63c1.08,0,1.56.26,1.56,1.08v7.8c0,.48-.22.87-.56,1.08-2.12,1.34-4.73,2.3-8.32,2.3-7.46,0-11.75-5.25-11.75-11.83Z" />
+            <path class="cls-1" d="M77.69,167.5c-2.17,6.33-5.64,15.09-7.02,18.16-.17.39-.61.65-1.04.65-.56,0-.95-.48-1.13-.87-1.52-3.25-5.81-15.82-6.98-19.85-.35-1.21-.43-1.56-.43-1.73,0-.56.48-1.08,1.08-1.08.48,0,.91.3,1.04.78,1.21,4.55,4.55,14.22,6.42,18.94,2.04-4.85,5.46-13.7,7.02-18.81.13-.48.56-.78,1.04-.78.56,0,.91.39,1.21,1.3,1.47,4.68,4.81,13.74,6.72,18.38,1.91-4.86,5.03-13.83,6.55-19.03.13-.48.56-.78,1.04-.78.52,0,1.08.52,1.08,1.08,0,.13-.09.48-.22.91-1.65,5.59-5.77,17.3-7.37,20.94-.17.39-.61.65-1.04.65-.35,0-.78-.22-1.08-.87-1.43-2.82-4.9-12.05-6.89-17.99Z" />
+            <path class="cls-1" d="M113.71,179.64h-12.22c-.82,2.08-1.56,3.99-2.12,5.55-.17.48-.65.74-1.08.74-.52,0-1.04-.48-1.04-1.13,0-.17.04-.35.43-1.34,1.95-5.25,5.68-13.83,8.67-20.46.17-.39.61-.65,1.04-.65h.17c.43,0,.87.22,1.04.61,3.12,6.72,7.37,16.21,9.06,20.5.43,1.04.48,1.26.48,1.39,0,.56-.52,1.08-1.08,1.08-.43,0-.82-.26-1-.69-.61-1.56-1.43-3.51-2.34-5.59ZM102.4,177.47h10.4c-1.69-3.86-3.6-8.06-5.33-11.7-1.6,3.68-3.47,7.85-5.07,11.7Z" />
+            <path class="cls-1" d="M124.89,174.48c0,5.46,3.64,9.67,9.93,9.67,2.08,0,3.9-.43,5.37-1.17.13-.09.3-.13.48-.13.61,0,1.08.43,1.08,1.08,0,.39-.22.78-.61.95-1.73.91-3.9,1.43-6.33,1.43-7.67,0-12.09-5.16-12.09-11.83,0-7.28,5.5-12.14,11.83-12.14,2.51,0,4.86.52,6.42,1.39.35.22.56.56.56.95,0,.52-.43,1.08-1.08,1.08-.17,0-.35-.04-.52-.13-1.3-.69-3.29-1.13-5.38-1.13-5.2,0-9.67,3.99-9.67,9.97Z" />
+          </g>
+        </svg>
+      </div>
+      <p>Special Interest Group of the <a href="http://www.aclweb.org/">Association for Computational Linguistics</a> on Web as Corpus</p>
+    </div>
+  </footer>
+
+</body>
+</html>
